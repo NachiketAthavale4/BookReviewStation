@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs
+/Book.Abstract/bin/Debug
+/Book.Abstract/obj/Debug
+/Book.Concrete/bin/Debug
+/Book.Concrete/obj/Debug
+/Book.DataLayer/bin/Debug
+/Book.DataLayer/obj
+/Book.Domain/obj/Debug
+/BookApi/obj/Debug
+/BookApi/BookApi.csproj.user
+/packages
+/BookApi/bin
