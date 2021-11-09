@@ -57,6 +57,8 @@
     <Compile Include="DataModels\BookDetails.cs" />
     <Compile Include="DataModels\ISBNDetails.cs" />
     <Compile Include="DataModels\PhysicalBookDetails.cs" />
+    <Compile Include="DataModels\Review.cs" />
+    <Compile Include="DataModels\ReviewType.cs" />
     <Compile Include="ISBNRepository.cs" />
     <Compile Include="Mapper\DataToDomainModelMapper.cs" />
     <Compile Include="Migrations\202110311829562_InitMigration.cs" />
@@ -67,9 +69,18 @@
     <Compile Include="Migrations\202111010826527_AddBookIdRefMigration.designer.cs">
       <DependentUpon>202111010826527_AddBookIdRefMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111081719435_ReviewMigration.cs" />
+    <Compile Include="Migrations\202111081719435_ReviewMigration.designer.cs">
+      <DependentUpon>202111081719435_ReviewMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111091506307_ReviewerNameMigration.cs" />
+    <Compile Include="Migrations\202111091506307_ReviewerNameMigration.designer.cs">
+      <DependentUpon>202111091506307_ReviewerNameMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PhysicalBookRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Book.Abstract\Book.Abstract.csproj">
@@ -91,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111010826527_AddBookIdRefMigration.resx">
       <DependentUpon>202111010826527_AddBookIdRefMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111081719435_ReviewMigration.resx">
+      <DependentUpon>202111081719435_ReviewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111091506307_ReviewerNameMigration.resx">
+      <DependentUpon>202111091506307_ReviewerNameMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using Book.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Book.DataLayer.Mapper
@@ -102,6 +103,50 @@ namespace Book.DataLayer.Mapper
                 Length = physicalBookDetails.Length,
                 NumberOfPages = physicalBookDetails.NumberOfPages,
                 Width = physicalBookDetails.Width
+            };
+        }
+
+        internal static DataModels.Review MapDomainReviewToDataReview(this Review review)
+        {
+            if (review == null)
+            {
+                return null;
+            }
+
+            return new DataModels.Review
+            {
+                Rating = review.Rating,
+                ReviewingOrganization = review.ReviewingOrganization,
+                ReviewTitle = review.ReviewTitle,
+                ReviewType = new DataModels.ReviewType
+                {
+                    ReviewTypeId = (int)review.Type,
+                    TypeName = review.Type.ToString()
+                },
+                ReviewDescription = review.ReviewDescription,
+                ReviewId = review.ReviewId
+            };
+        }
+
+        internal static Review MapDataReviewToDomainReview(this DataModels.Review reviewDto)
+        {
+            if (reviewDto == null)
+            {
+                return null;
+            }
+
+            return new Review
+            {
+                Rating = reviewDto.Rating,
+                ReviewDescription = reviewDto.ReviewDescription,
+                ReviewTitle = reviewDto.ReviewTitle,
+                ReviewId = reviewDto.ReviewId,
+                ReviewingOrganization = reviewDto.ReviewingOrganization,
+                Type = reviewDto.ReviewType == null 
+                       ? ReviewType.Critical 
+                       : (ReviewType)reviewDto.ReviewType.ReviewTypeId,
+                BookId = reviewDto.Book == null ? 0 : reviewDto.Book.BookId,
+                ReviewerName = reviewDto.ReviewerName
             };
         }
     }

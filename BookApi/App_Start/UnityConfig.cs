@@ -12,6 +12,7 @@ namespace BookApi
         {
 			var container = new UnityContainer();
             container.RegisterType<IBookRepository, BookEFRepository>();
+            container.RegisterType<IReviewRepository, ReviewRepository>();
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

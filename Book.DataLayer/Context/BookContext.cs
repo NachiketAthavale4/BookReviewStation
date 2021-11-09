@@ -14,10 +14,12 @@ namespace Book.DataLayer.Context
         public DbSet<BookDetails> Books { get; set; }
         public DbSet<ISBNDetails> ISBNDetails { get; set; }
         public DbSet<PhysicalBookDetails> PhysicalBookDetails { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<ReviewType> ReviewTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
+
         }
     }
 }
