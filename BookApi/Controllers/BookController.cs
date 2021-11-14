@@ -1,6 +1,7 @@
 ﻿using Book.Abstract.Interfaces;
 using Book.Domain.Models;
 using BookApi.Extensions;
+using BookApi.Infrastructure;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
@@ -19,6 +20,7 @@ namespace BookApi.Controllers
 
         [HttpGet]
         [Route("getAllBooks")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult GetBooks(int pageSize, int pageNumber)
         {
             if (pageSize == 0)
@@ -44,6 +46,7 @@ namespace BookApi.Controllers
 
         [HttpGet]
         [Route("{bookId}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult GetBookById(long bookId)
         {
             if (bookId == 0)
@@ -69,6 +72,7 @@ namespace BookApi.Controllers
 
         [HttpPut]
         [Route("update")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult UpdateBookDetails(BookDetails bookDetails)
         {
             if (bookDetails.BookId == 0)
@@ -94,6 +98,7 @@ namespace BookApi.Controllers
 
         [HttpPost]
         [Route("create")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult CreateBook(BookDetails bookDetails)
         {
             var createBookDetails = this.bookRepository.CreateBookDetails(bookDetails);
@@ -109,6 +114,7 @@ namespace BookApi.Controllers
 
         [HttpDelete]
         [Route("remove/{bookId}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult RemoveBook(long bookId)
         {
             if (bookId == 0)

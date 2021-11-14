@@ -8,7 +8,7 @@ namespace Book.DataLayer.Context
     {
         public BookContext() : base("BookDbCon")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookContext, Migrations.Configuration>());
         }
 
         public DbSet<BookDetails> Books { get; set; }

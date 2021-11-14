@@ -2,7 +2,7 @@
 
 namespace Book.Domain.Models
 {
-    public class Review
+    public class Review : BaseError
     {
         public long ReviewId { get; set; }
         public long BookId { get; set; }
@@ -13,5 +13,15 @@ namespace Book.Domain.Models
         public int Rating { get; set; }
         public string ReviewingOrganization { get; set; }
         public string ReviewerName { get; set; }
+
+        public Review()
+        {
+
+        }
+
+        public Review(string errorCodeDescription) : base(errorCodeDescription)
+        {
+
+        }
     }
 }

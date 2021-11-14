@@ -1,6 +1,6 @@
 ﻿namespace Book.Domain.Models
 {
-    public class BookDetails
+    public class BookDetails : BaseError
     {
         public long BookId { get; set; }
         public string Name { get; set; }
@@ -11,5 +11,15 @@
         public string Description { get; set; }
         public PhysicalBookDetails PhysicalBookDetails { get; set; }
         public ISBNDetails ISBNDetails { get; set; }
+
+        public BookDetails()
+        {
+
+        }
+
+        public BookDetails(string errorDescription) : base(errorDescription)
+        {
+
+        }
     }
 }

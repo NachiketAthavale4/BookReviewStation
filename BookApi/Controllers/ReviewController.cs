@@ -3,6 +3,7 @@
     using Book.Abstract.Interfaces;
     using Book.Domain.Models;
     using BookApi.Extensions;
+    using BookApi.Infrastructure;
     using System.Net.Http;
     using System.Text;
     using System.Web.Http;
@@ -19,6 +20,7 @@
 
         [HttpPost]
         [Route("add/critical")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult AddCriticsReview(Review review, ReviewType reviewType = ReviewType.Critical)
         {
             if (review == null)
@@ -41,6 +43,7 @@
 
         [HttpPost]
         [Route("add/user")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult AddUserReview(Review review, ReviewType reviewType = ReviewType.UserGenerated)
         {
             if (review == null)
@@ -63,6 +66,7 @@
 
         [HttpGet]
         [Route("{reviewId}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult GetReview(long reviewId)
         {
             if (reviewId <= 0)
@@ -83,6 +87,7 @@
 
         [HttpGet]
         [Route("critical/book/{bookid}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult GetCriticalReviewsForBook(long bookId, int pageSize = 5, int pageNumber = 1)
         {
             if (bookId <= 0)
@@ -108,6 +113,7 @@
 
         [HttpGet]
         [Route("user/book/{bookid}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult GetUserReviewsForBook(long bookId, int pageSize = 5, int pageNumber = 1)
         {
             if (bookId <= 0)
@@ -133,6 +139,7 @@
 
         [HttpPut]
         [Route("update")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult UpdateReview(Review review)
         {
             if (review == null)
@@ -158,6 +165,7 @@
 
         [HttpDelete]
         [Route("delete/{reviewId}")]
+        [ApiExceptionFilter(errorCode: "Book300")]
         public IHttpActionResult DeleteReview(long reviewId)
         {
             if (reviewId <= 0)

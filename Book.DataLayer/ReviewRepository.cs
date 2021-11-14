@@ -1,6 +1,7 @@
 ﻿namespace Book.DataLayer
 {
     using Book.Abstract.Interfaces;
+    using Book.Configuration.ApiIntegration;
     using Book.DataLayer.Context;
     using Book.DataLayer.Mapper;
     using Book.Domain.Models;
@@ -18,6 +19,7 @@
             this.bookRepository = new BookRepository();
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public Review AddReview(Review review)
         {
             using (var context = new BookContext())
@@ -43,6 +45,7 @@
             }
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public IEnumerable<Review> GetCriticsReviewsForBook(long bookId, int pageSize, int pageNumber)
         {
             using (var context = new BookContext())
@@ -70,6 +73,7 @@
             }
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public Review GetReview(long reviewId)
         {
             using (var context = new BookContext())
@@ -79,6 +83,7 @@
             }
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public IEnumerable<Review> GetUserReviewsForBook(long bookId, int pageSize, int pageNumber)
         {
             using (var context = new BookContext())
@@ -106,6 +111,7 @@
             }
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public Review UpdateReview(Review review)
         {
             using (var context = new BookContext())
@@ -131,6 +137,7 @@
             }
         }
 
+        [ServiceException(errorCodeValue: "Review400")]
         public Review DeleteReview(long reviewId)
         {
             using (var context = new BookContext())
