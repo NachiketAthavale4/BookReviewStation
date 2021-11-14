@@ -10,9 +10,10 @@
 
         }
 
-        public BaseError(string errorDescription)
+        public BaseError(string errorDescription, string errorCode)
         {
             ErrorDescription = errorDescription;
+            ErrorCode = errorCode;
         }
     }
 }

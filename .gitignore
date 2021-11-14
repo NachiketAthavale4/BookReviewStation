@@ -15,3 +15,5 @@
 /packages
 /BookApi/bin
 /Book.Configuration/obj/Debug
+/Book.Configuration/bin/Debug
+/Book.Domain/bin/Debug

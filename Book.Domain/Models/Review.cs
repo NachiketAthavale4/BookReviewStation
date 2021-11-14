@@ -19,7 +19,7 @@ namespace Book.Domain.Models
 
         }
 
-        public Review(string errorCodeDescription) : base(errorCodeDescription)
+        public Review(string errorCodeDescription, string errorCode) : base(errorCodeDescription, errorCode)
         {
 
         }

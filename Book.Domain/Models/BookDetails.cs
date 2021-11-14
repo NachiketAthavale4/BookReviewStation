@@ -17,7 +17,7 @@
 
         }
 
-        public BookDetails(string errorDescription) : base(errorDescription)
+        public BookDetails(string errorDescription, string errorCode) : base(errorDescription, errorCode)
         {
 
         }

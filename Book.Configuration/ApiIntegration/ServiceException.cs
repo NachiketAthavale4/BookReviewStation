@@ -7,11 +7,12 @@
 
     public class ServiceException : HandlerAttribute
     {
-        public ICallHandler _serviceExceptionCallHandler { get; set; }
+        public ICallHandlerExtension _serviceExceptionCallHandler { get; set; }
 
         public ServiceException(string errorCodeValue)
         {
-            this._serviceExceptionCallHandler = UnityApi.container.Resolve<ICallHandler>();
+            this._serviceExceptionCallHandler = UnityApi.container.Resolve<ICallHandlerExtension>();
+            this._serviceExceptionCallHandler.SetErrorCode(errorCodeValue);
         }
 
         public override ICallHandler CreateHandler(IUnityContainer container)

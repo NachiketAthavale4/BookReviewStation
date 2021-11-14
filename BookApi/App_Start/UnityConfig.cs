@@ -21,7 +21,7 @@ namespace BookApi
 			var container = UnityApi.container;
 
             container.AddNewExtension<Interception>();
-            container.RegisterType<ICallHandler, ServiceExceptionCallHandler>();
+            container.RegisterType<ICallHandlerExtension, ServiceExceptionCallHandler>();
 
             container.Configure<Interception>()
                      .AddPolicy("ExceptionPolicy")
